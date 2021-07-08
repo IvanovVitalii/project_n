@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+            <div class="site-heading">
+                <h1>Search Results</h1>
+            </div>
+            {% for post in object_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text text-muted h6">{{ post.author }} | {{ post.created}} </p>
+                    <p class="card-text">{{post.content|slice:":50" }}</p>
+                    <a href="{% url 'post_detail' post.id  %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
+            <a href="{% url 'home'  %}" class="btn btn-primary">Home</a>
+            <div class="pagination">
+                <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a href="?q={{ q }}&page=1">&laquo; first</a>
+                <a href="?q={{ q }}&page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                <a href="?q={{ q }}&page={{ page_obj.next_page_number }}">next</a>
+                <a href="?q={{ q }}&page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

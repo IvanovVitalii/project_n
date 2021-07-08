@@ -1,0 +1,10 @@
+__pycache__/
+htmlcov/
+.coverage
+.coverage.*
+db.sqlite3
+.venv
+venv/
+venv.bak/
+.idea
+*.pyc

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 card mb-4  mt-3 left  top">
+            <div class="card-body">
+                <div class="site-heading">
+                    <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
+                </div>
+                {% if post.created == post.updated %}
+                <p class=" text-muted">{{ post.author }} | {{ post.created }}</p>
+                {% else %}
+                <p class=" text-muted">{{ post.author }} | updated: {{ post.updated }}</p>
+                {% endif %}
+                <p class="card-text ">{{ object.content | safe }}</p>
+                <a href="{% url 'home'  %}" class="btn btn-primary">Home</a>
+                {% if request.user == post.author %}
+                <a class="btn btn-default" href="{% url 'post_create_form' pk=post.pk %}">Edit
+                    <span class="glyphicon glyphicon-pencil"></span></a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
