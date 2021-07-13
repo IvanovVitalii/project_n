@@ -11,15 +11,28 @@ from .models import Post, Product
 PAGINATOR = 5
 
 
-class ProductList(generic.ListView):
-    queryset = Product.objects.all().order_by('-title')
-    template_name = 'sidebar.html'
+# class PostList(generic.ListView):
+#     queryset = Post.objects.all().order_by('-created')
+#     template_name = 'home.html'
+#     paginate_by = PAGINATOR
 
 
 class PostList(generic.ListView):
-    queryset = Post.objects.all().order_by('-created')
-    template_name = 'index.html'
+    '''
+    Generating post_list and product_list to display on the home page
+    '''
+    template_name = 'home.html'
+    context_object_name = 'post_list'
+    model = Post
     paginate_by = PAGINATOR
+
+    def get_queryset(self):
+        return Post.objects.all().order_by('-created')
+
+    def get_context_data(self, **kwargs):
+        context = super(PostList, self).get_context_data(**kwargs)
+        context['product_list'] = Product.objects.all().order_by('-created')
+        return context
 
 
 class PostDetail(generic.DetailView):
