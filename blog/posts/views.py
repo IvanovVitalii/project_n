@@ -2,13 +2,18 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Q
 from django.http import HttpResponse
-from django.shortcuts import redirect, render, get_object_or_404
+from django.shortcuts import redirect, render
 from django.views import generic
 
 from .forms import LoginForm, PostForm
-from .models import Post
+from .models import Post, Product
 
 PAGINATOR = 5
+
+
+class ProductList(generic.ListView):
+    queryset = Product.objects.all().order_by('-title')
+    template_name = 'sidebar.html'
 
 
 class PostList(generic.ListView):

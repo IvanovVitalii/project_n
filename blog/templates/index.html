@@ -3,6 +3,7 @@
 {% block content %}
 
 <div class="container">
+    {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
     <div class="row">
         <div class="col-md-10 mt-3 left">
             {% for post in post_list %}
@@ -39,5 +40,4 @@
         </div>
     </div>
 </div>
-
 {%endblock%}
