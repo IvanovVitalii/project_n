@@ -35,31 +35,27 @@ class SearchResultsView(generic.ListView):
         return object_list
 
 
-def create_post(request):
-    if request.method == "POST":
-        form = PostForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('home')
-    else:
-        form = PostForm()
-    return render(request, 'post_create.html', {'form': form})
+class PostCreate(generic.CreateView):
+    form_class = PostForm
+    template_name = 'post_create.html'
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.author = self.request.user
+        post.save()
+        return redirect('home')
 
 
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'post_create.html', {'form': form})
+class PostUpdate(generic.UpdateView):
+    form_class = PostForm
+    model = Post
+    template_name = 'post_create.html'
+
+    def form_valid(self, form):
+        post = form.save(commit=False)
+        post.author = self.request.user
+        post.save()
+        return redirect('post_detail', pk=post.pk)
 
 
 def signup(request):
