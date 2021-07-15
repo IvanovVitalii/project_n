@@ -2,13 +2,13 @@
 
 {% block content %}
 <div class="container">
-    <h2>Create post</h2>
-    <form method="post" class="post-form">
+    <h2>Create product</h2>
+    <form method="post" class="product-form">
         {% csrf_token %}
         {{ form.as_p }}
     <p> <input type="submit" value="Save" name="Save">
 </form>
-    <a href="{% url 'home'  %}" class="btn btn-primary">Home</a>
+    <a href="{% url 'product'  %}" class="btn btn-primary">Products</a>
 </div>
 
 {% endblock content %}

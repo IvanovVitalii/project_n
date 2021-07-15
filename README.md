@@ -34,7 +34,7 @@ python3 manage.py createsuperuser
 python3 manage.py runserver
 ```
 ## 2. URLs of application
-
+______
 * SignUp
 
 [http://127.0.0.1:8000/signup/](http://127.0.0.1:8000/signup/ "SignUp")
@@ -43,25 +43,51 @@ python3 manage.py runserver
 
 [http://127.0.0.1:8000/login/](http://127.0.0.1:8000/login/ "LogIn")
 
-* Home page. 
+* About
+
+[http://127.0.0.1:8000/about/](http://127.0.0.1:8000/about/ "About app")
+______
+
+______
+* Posts page. 
 Unregistered user can only view posts.
   
-[http://127.0.0.1:8000/home/](http://127.0.0.1:8000/home/ "Home")
+[http://127.0.0.1:8000/post/](http://127.0.0.1:8000/post/ "Posts")
 
 * Create post.
 Only registered user can create posts.
 
-[http://127.0.0.1:8000/create/](http://127.0.0.1:8000/create/ "Create post")
+[http://127.0.0.1:8000/post/create/](http://127.0.0.1:8000/post/create/ "Create post")
 
 * Detail post.
 Any user can view the details of the post.
 
-[http://127.0.0.1:8000/home/1/](http://127.0.0.1:8000/home/1/ "Detail post")
+[http://127.0.0.1:8000/post/1/](http://127.0.0.1:8000/post/1/ "Detail post")
   
 * Edit post. 
   Registered user can edit their posts.
 
-[http://127.0.0.1:8000/home/1/edit/](http://127.0.0.1:8000/home/1/edit/ "Edit post")
+[http://127.0.0.1:8000/post/1/edit/](http://127.0.0.1:8000/post/1/edit/ "Edit post")
+______
+* Products page. 
+Unregistered user can only view posts.
+  
+[http://127.0.0.1:8000/product/](http://127.0.0.1:8000/product/ "Products")
+
+* Create product.
+Only registered user can create products.
+
+[http://127.0.0.1:8000/product/create/](http://127.0.0.1:8000/product/create/ "Create product")
+
+* Detail product.
+Any user can view the details of the product.
+
+[http://127.0.0.1:8000/product/1/](http://127.0.0.1:8000/product/1/ "Detail product")
+  
+* Edit product. 
+  Registered user can edit their products.
+
+[http://127.0.0.1:8000/product/1/edit/](http://127.0.0.1:8000/product/1/edit/ "Edit product")
 
 ## 3. What did not have time to do.
 

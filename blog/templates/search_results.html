@@ -8,7 +8,7 @@
             <div class="site-heading">
                 <h1>Search Results</h1>
             </div>
-            {% for post in object_list %}
+            {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
                     <h2 class="card-title">{{ post.title }}</h2>
@@ -18,7 +18,16 @@
                 </div>
             </div>
             {% endfor %}
-            <a href="{% url 'home'  %}" class="btn btn-primary">Home</a>
+            {% for product in product_list %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h2 class="card-title">{{ product.title }}</h2>
+                    <p class="card-text text-muted h6">{{ product.author }} | {{ product.created}} </p>
+                    <p class="card-text">{{product.content|slice:":50" }}</p>
+                    <a href="{% url 'product_detail' product.id  %}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+            {% endfor %}
             <div class="pagination">
                 <span class="step-links">
                 {% if page_obj.has_previous %}

@@ -5,6 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 mt-3 left">
+            <a href="{% url 'post_create_form'  %}" class="btn btn-primary">Create post</a>
             {% for post in post_list %}
             <div class="card mb-4">
                 <div class="card-body">
@@ -18,15 +19,6 @@
                     <a href="{% url 'post_detail' post.id  %}" class="btn btn-primary">Read More</a>
                 </div>
             </div>
-            {% endfor %}
-            {% for product in product_list %}
-            <h2 class="card-title">{{ product.title }}</h2>
-                    {% if product.created == product.updated %}
-                    <p class=" text-muted">{{ product.author }} | {{ product.created }}</p>
-                    {% else %}
-                    <p class=" text-muted">{{ product.author }} | updated: {{ product.updated }}</p>
-                    {% endif %}
-                    <p class="card-text">{{product.content|slice:":50" }}</p>
             {% endfor %}
             <div class="pagination">
                 <span class="step-links">

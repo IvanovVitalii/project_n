@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-md-8 mt-3 left">
             {% if request.user %}
-            <a href="{% url 'home' %}">
+            <a href="{% url 'post' %}">
                 SingOut
             </a>
             {% else %}
-            <a href="{% url 'home' %}">
+            <a href="{% url 'post' %}">
                 SingUp
             </a>
             {% endif %}
